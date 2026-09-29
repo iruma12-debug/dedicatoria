@@ -1,0 +1,2644 @@
+/* =========================================================
+   DETALLES DEL CORAZÓN
+   By Iru Ventxs
+   ESTILOS COMPLETOS
+========================================================= */
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+
+    --bg-main: #09070a;
+    --bg-secondary: #100b10;
+    --bg-card: rgba(255, 255, 255, 0.045);
+
+    --white: #f8f4f6;
+    --white-soft: #d9d1d6;
+    --text-muted: #a79ca3;
+
+    --rose: #dca4b8;
+    --rose-light: #f1c6d4;
+    --rose-dark: #9d6078;
+
+    --line: rgba(255, 255, 255, 0.11);
+    --line-soft: rgba(255, 255, 255, 0.065);
+
+    --shadow:
+        0 25px 70px rgba(0, 0, 0, 0.45);
+
+    --font-title: "Cormorant Garamond", serif;
+    --font-body: "Poppins", sans-serif;
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(150, 75, 105, 0.12),
+            transparent 40%
+        ),
+        var(--bg-main);
+
+    color: var(--white);
+
+    font-family: var(--font-body);
+
+    overflow-x: hidden;
+
+    -webkit-font-smoothing: antialiased;
+
+}
+
+
+body.modal-open {
+    overflow: hidden;
+}
+
+
+button,
+input,
+textarea {
+    font-family: inherit;
+}
+
+
+button {
+    border: 0;
+    outline: 0;
+}
+
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 1px solid var(--rose);
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   SELECCIÓN
+========================================================= */
+
+::selection {
+    background: rgba(220, 164, 184, 0.25);
+    color: white;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+
+::-webkit-scrollbar-track {
+    background: #080608;
+}
+
+
+::-webkit-scrollbar-thumb {
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--rose-dark),
+            var(--rose)
+        );
+
+    border-radius: 20px;
+}
+
+
+/* =========================================================
+   FONDO GENERAL
+========================================================= */
+
+.background-glow {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: -5;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(200, 120, 150, 0.07),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 65%,
+            rgba(170, 80, 120, 0.055),
+            transparent 30%
+        );
+
+}
+
+
+/* =========================================================
+   BRILLOS AMBIENTALES
+========================================================= */
+
+.glow-1,
+.glow-2 {
+
+    position: fixed;
+
+    width: 320px;
+    height: 320px;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    filter: blur(100px);
+
+    opacity: 0.16;
+
+    z-index: -4;
+
+}
+
+
+.glow-1 {
+
+    top: 5%;
+    left: -180px;
+
+    background: #b86f91;
+
+    animation:
+        ambientMoveOne
+        15s
+        ease-in-out
+        infinite alternate;
+
+}
+
+
+.glow-2 {
+
+    right: -180px;
+    bottom: 8%;
+
+    background: #70415b;
+
+    animation:
+        ambientMoveTwo
+        18s
+        ease-in-out
+        infinite alternate;
+
+}
+
+
+@keyframes ambientMoveOne {
+
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(100px, 70px, 0);
+    }
+
+}
+
+
+@keyframes ambientMoveTwo {
+
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(-100px, -80px, 0);
+    }
+
+}
+
+
+/* =========================================================
+   PARTÍCULAS
+========================================================= */
+
+.floating-hearts {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: -2;
+
+}
+
+
+.floating-hearts span {
+
+    position: absolute;
+
+    width: 3px;
+    height: 3px;
+
+    border-radius: 50%;
+
+    background: rgba(240, 200, 215, 0.7);
+
+    box-shadow:
+        0 0 8px rgba(240, 180, 205, 0.7);
+
+    animation:
+        particleFloat
+        9s
+        linear
+        infinite;
+
+    opacity: 0;
+
+}
+
+
+.floating-hearts span:nth-child(1) {
+    left: 8%;
+    bottom: -10%;
+    animation-delay: 0s;
+}
+
+
+.floating-hearts span:nth-child(2) {
+    left: 18%;
+    bottom: -10%;
+    animation-delay: 2s;
+}
+
+
+.floating-hearts span:nth-child(3) {
+    left: 31%;
+    bottom: -10%;
+    animation-delay: 4s;
+}
+
+
+.floating-hearts span:nth-child(4) {
+    left: 47%;
+    bottom: -10%;
+    animation-delay: 1s;
+}
+
+
+.floating-hearts span:nth-child(5) {
+    left: 58%;
+    bottom: -10%;
+    animation-delay: 6s;
+}
+
+
+.floating-hearts span:nth-child(6) {
+    left: 69%;
+    bottom: -10%;
+    animation-delay: 3s;
+}
+
+
+.floating-hearts span:nth-child(7) {
+    left: 78%;
+    bottom: -10%;
+    animation-delay: 5s;
+}
+
+
+.floating-hearts span:nth-child(8) {
+    left: 87%;
+    bottom: -10%;
+    animation-delay: 7s;
+}
+
+
+.floating-hearts span:nth-child(9) {
+    left: 40%;
+    bottom: -10%;
+    animation-delay: 8s;
+}
+
+
+.floating-hearts span:nth-child(10) {
+    left: 93%;
+    bottom: -10%;
+    animation-delay: 1.5s;
+}
+
+
+@keyframes particleFloat {
+
+    0% {
+
+        transform:
+            translateY(0)
+            scale(0.5);
+
+        opacity: 0;
+
+    }
+
+    15% {
+        opacity: 0.7;
+    }
+
+    80% {
+        opacity: 0.25;
+    }
+
+    100% {
+
+        transform:
+            translateY(-110vh)
+            scale(1.2);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding:
+        80px
+        24px
+        90px;
+
+}
+
+
+.hero-content {
+
+    width: 100%;
+    max-width: 850px;
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+/* =========================================================
+   SÍMBOLO
+========================================================= */
+
+.heart-symbol {
+
+    width: 74px;
+    height: 74px;
+
+    margin: 0 auto 30px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(220, 164, 184, 0.25);
+
+    border-radius: 50%;
+
+    color: var(--rose-light);
+
+    font-family: var(--font-title);
+
+    font-size: 43px;
+
+    font-weight: 400;
+
+    box-shadow:
+        0 0 40px
+        rgba(220, 164, 184, 0.08);
+
+    animation:
+        symbolPulse
+        4s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes symbolPulse {
+
+    0%,
+    100% {
+
+        transform: scale(1);
+
+        box-shadow:
+            0 0 30px
+            rgba(220, 164, 184, 0.05);
+
+    }
+
+    50% {
+
+        transform: scale(1.035);
+
+        box-shadow:
+            0 0 50px
+            rgba(220, 164, 184, 0.13);
+
+    }
+
+}
+
+
+/* =========================================================
+   HERO KICKER
+========================================================= */
+
+.hero-kicker {
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    color: var(--rose);
+
+    font-weight: 500;
+
+    margin-bottom: 24px;
+
+}
+
+
+/* =========================================================
+   HERO TITLE
+========================================================= */
+
+.hero-title {
+
+    position: relative;
+
+    font-family: var(--font-title);
+
+    font-size:
+        clamp(68px, 10vw, 125px);
+
+    line-height: 0.78;
+
+    font-weight: 500;
+
+    letter-spacing: -4px;
+
+    color: var(--white);
+
+    text-shadow:
+        0 20px 50px
+        rgba(0, 0, 0, 0.5);
+
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.brand {
+
+    margin-top: 35px;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    color: var(--rose);
+
+    text-transform: uppercase;
+
+    opacity: 0.9;
+
+}
+
+
+/* =========================================================
+   DIVISOR HERO
+========================================================= */
+
+.hero-divider {
+
+    width: 70px;
+    height: 1px;
+
+    margin:
+        30px
+        auto;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--rose),
+            transparent
+        );
+
+}
+
+
+/* =========================================================
+   HERO DESCRIPTION
+========================================================= */
+
+.hero-description {
+
+    max-width: 480px;
+
+    margin: auto;
+
+    color: var(--text-muted);
+
+    font-size: 13px;
+
+    line-height: 1.9;
+
+    font-weight: 300;
+
+}
+
+
+/* =========================================================
+   SCROLL INDICATOR
+========================================================= */
+
+.scroll-indicator {
+
+    margin-top: 65px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 13px;
+
+}
+
+
+.scroll-indicator span {
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+    color: rgba(255, 255, 255, 0.4);
+
+}
+
+
+.scroll-line {
+
+    width: 1px;
+
+    height: 45px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            var(--rose),
+            transparent
+        );
+
+    animation:
+        scrollLine
+        2s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes scrollLine {
+
+    0% {
+        transform: scaleY(0.3);
+        transform-origin: top;
+    }
+
+    50% {
+        transform: scaleY(1);
+        transform-origin: top;
+    }
+
+    100% {
+        transform: scaleY(0.3);
+        transform-origin: bottom;
+    }
+
+}
+
+
+/* =========================================================
+   SECCIÓN DE DETALLES
+========================================================= */
+
+.details-section {
+
+    max-width: 1250px;
+
+    margin: auto;
+
+    padding:
+        120px
+        25px
+        150px;
+
+}
+
+
+/* =========================================================
+   ENCABEZADO DE SECCIÓN
+========================================================= */
+
+.section-heading {
+
+    max-width: 650px;
+
+    margin:
+        0
+        auto
+        70px;
+
+    text-align: center;
+
+}
+
+
+.section-kicker {
+
+    color: var(--rose);
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.section-heading h2 {
+
+    font-family: var(--font-title);
+
+    font-size:
+        clamp(45px, 6vw, 70px);
+
+    line-height: 0.95;
+
+    font-weight: 500;
+
+    color: var(--white);
+
+}
+
+
+.section-description {
+
+    margin:
+        25px
+        auto
+        0;
+
+    max-width: 450px;
+
+    color: var(--text-muted);
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.details-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 17px;
+
+}
+
+
+/* =========================================================
+   TARJETAS
+========================================================= */
+
+.detail-card {
+
+    position: relative;
+
+    min-height: 300px;
+
+    padding: 30px 27px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.055),
+            rgba(255, 255, 255, 0.018)
+        );
+
+    border:
+        1px solid
+        var(--line-soft);
+
+    border-radius: 4px;
+
+    box-shadow:
+        0 20px 50px
+        rgba(0, 0, 0, 0.18);
+
+    opacity: 0;
+
+    transform:
+        translateY(35px);
+
+    transition:
+        transform 0.5s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease,
+        opacity 0.7s ease;
+
+}
+
+
+.detail-card.card-visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+.detail-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 120px;
+    height: 120px;
+
+    right: -70px;
+    top: -70px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(220, 164, 184, 0.08);
+
+    filter: blur(35px);
+
+    transition:
+        transform 0.5s ease;
+
+}
+
+
+.detail-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 70%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.06),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    transition:
+        left 0.8s ease;
+
+}
+
+
+.detail-card:hover::after {
+    left: 150%;
+}
+
+
+.detail-card:hover {
+
+    border-color:
+        rgba(220, 164, 184, 0.25);
+
+    box-shadow:
+        0 30px 70px
+        rgba(0, 0, 0, 0.35);
+
+}
+
+
+.detail-card:hover::before {
+    transform: scale(1.7);
+}
+
+
+/* =========================================================
+   NÚMERO
+========================================================= */
+
+.card-number {
+
+    font-family: var(--font-title);
+
+    font-size: 13px;
+
+    color:
+        rgba(255, 255, 255, 0.35);
+
+    letter-spacing: 2px;
+
+}
+
+
+/* =========================================================
+   ICONO
+========================================================= */
+
+.card-icon {
+
+    margin-top: 32px;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(220, 164, 184, 0.25);
+
+    border-radius: 50%;
+
+    color: var(--rose-light);
+
+    font-family: var(--font-title);
+
+    font-size: 20px;
+
+}
+
+
+/* =========================================================
+   TÍTULO TARJETA
+========================================================= */
+
+.detail-card h3 {
+
+    margin-top: 25px;
+
+    font-family: var(--font-title);
+
+    font-size: 25px;
+
+    line-height: 1;
+
+    font-weight: 500;
+
+    color: var(--white);
+
+}
+
+
+/* =========================================================
+   DESCRIPCIÓN TARJETA
+========================================================= */
+
+.detail-card p {
+
+    margin-top: 12px;
+
+    color: var(--text-muted);
+
+    font-size: 10px;
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================================================
+   BOTÓN TARJETA
+========================================================= */
+
+.detail-card button {
+
+    margin-top: auto;
+
+    padding-top: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background: transparent;
+
+    color: var(--white-soft);
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    position: relative;
+
+    z-index: 3;
+
+}
+
+
+.detail-card button span {
+
+    font-size: 18px;
+
+    color: var(--rose);
+
+    transition:
+        transform 0.3s ease;
+
+}
+
+
+.detail-card button:hover span {
+
+    transform:
+        translateX(7px);
+
+}
+
+
+/* =========================================================
+   TARJETA DESTACADA
+========================================================= */
+
+.featured-card {
+
+    border-color:
+        rgba(220, 164, 184, 0.22);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(220, 164, 184, 0.075),
+            rgba(255, 255, 255, 0.018)
+        );
+
+}
+
+
+/* =========================================================
+   MENSAJE FINAL
+========================================================= */
+
+.final-message {
+
+    max-width: 800px;
+
+    margin:
+        0
+        auto;
+
+    padding:
+        30px
+        25px
+        160px;
+
+    text-align: center;
+
+}
+
+
+.final-line {
+
+    width: 55px;
+    height: 1px;
+
+    margin:
+        0
+        auto
+        30px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--rose),
+            transparent
+        );
+
+}
+
+
+.final-kicker {
+
+    color: var(--rose);
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+}
+
+
+.final-message h2 {
+
+    margin-top: 22px;
+
+    font-family: var(--font-title);
+
+    font-size:
+        clamp(42px, 6vw, 65px);
+
+    line-height: 0.95;
+
+    font-weight: 500;
+
+}
+
+
+.final-description {
+
+    margin-top: 25px;
+
+    color: var(--text-muted);
+
+    font-size: 11px;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.site-footer {
+
+    padding:
+        0
+        25px
+        45px;
+
+    text-align: center;
+
+}
+
+
+.footer-line {
+
+    width: 100%;
+
+    max-width: 1100px;
+
+    height: 1px;
+
+    margin:
+        0
+        auto
+        30px;
+
+    background:
+        var(--line-soft);
+
+}
+
+
+.site-footer p {
+
+    font-family: var(--font-title);
+
+    font-size: 20px;
+
+    color: var(--white-soft);
+
+}
+
+
+.site-footer span {
+
+    display: block;
+
+    margin-top: 8px;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    color: var(--rose);
+
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.detail-modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    visibility: hidden;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.35s ease,
+        visibility 0.35s ease;
+
+}
+
+
+.detail-modal.active {
+
+    visibility: visible;
+
+    opacity: 1;
+
+    pointer-events: auto;
+
+}
+
+
+/* =========================================================
+   FONDO DEL MODAL
+========================================================= */
+
+.modal-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        rgba(4, 3, 5, 0.82);
+
+    backdrop-filter:
+        blur(16px);
+
+    -webkit-backdrop-filter:
+        blur(16px);
+
+}
+
+
+/* =========================================================
+   VENTANA
+========================================================= */
+
+.modal-window {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 560px;
+
+    max-height: 92vh;
+
+    overflow-y: auto;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(27, 20, 25, 0.98),
+            rgba(12, 9, 12, 0.99)
+        );
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.1);
+
+    box-shadow:
+        0 40px 100px
+        rgba(0, 0, 0, 0.65);
+
+    transform:
+        translateY(30px)
+        scale(0.97);
+
+    transition:
+        transform 0.4s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        );
+
+}
+
+
+.detail-modal.active .modal-window {
+
+    transform:
+        translateY(0)
+        scale(1);
+
+}
+
+
+/* =========================================================
+   LÍNEA SUPERIOR
+========================================================= */
+
+.modal-top-line {
+
+    width: 100%;
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--rose),
+            transparent
+        );
+
+}
+
+
+/* =========================================================
+   CERRAR
+========================================================= */
+
+.modal-close {
+
+    position: absolute;
+
+    top: 18px;
+    right: 20px;
+
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.1);
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    color:
+        rgba(255, 255, 255, 0.7);
+
+    font-size: 22px;
+
+    font-weight: 300;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+
+}
+
+
+.modal-close:hover {
+
+    background:
+        rgba(220, 164, 184, 0.1);
+
+    color: white;
+
+    transform:
+        rotate(90deg);
+
+}
+
+
+/* =========================================================
+   CONTENIDO MODAL
+========================================================= */
+
+.modal-content {
+
+    padding:
+        45px
+        42px
+        35px;
+
+}
+
+
+/* =========================================================
+   CATEGORÍA
+========================================================= */
+
+.modal-category {
+
+    color: var(--rose);
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+}
+
+
+/* =========================================================
+   NÚMERO
+========================================================= */
+
+.modal-number {
+
+    margin-top: 8px;
+
+    font-family: var(--font-title);
+
+    font-size: 13px;
+
+    color:
+        rgba(255, 255, 255, 0.3);
+
+    letter-spacing: 2px;
+
+}
+
+
+/* =========================================================
+   TÍTULO MODAL
+========================================================= */
+
+.modal-title {
+
+    margin-top: 17px;
+
+    max-width: 440px;
+
+    font-family: var(--font-title);
+
+    font-size:
+        clamp(42px, 7vw, 58px);
+
+    line-height: 0.9;
+
+    font-weight: 500;
+
+    color: var(--white);
+
+}
+
+
+/* =========================================================
+   SUBTÍTULO
+========================================================= */
+
+.modal-subtitle {
+
+    margin-top: 18px;
+
+    color: var(--white-soft);
+
+    font-size: 11px;
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================================================
+   DIVISOR MODAL
+========================================================= */
+
+.modal-divider {
+
+    width: 45px;
+    height: 1px;
+
+    margin:
+        25px
+        0;
+
+    background:
+        var(--rose);
+
+}
+
+
+/* =========================================================
+   DESCRIPCIÓN
+========================================================= */
+
+.modal-description {
+
+    color: var(--text-muted);
+
+    font-size: 11px;
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================================================
+   FORMULARIOS
+========================================================= */
+
+.form-group {
+
+    margin-top: 27px;
+
+}
+
+
+.form-group label {
+
+    display: block;
+
+    margin-bottom: 9px;
+
+    color:
+        rgba(255, 255, 255, 0.75);
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+}
+
+
+.form-group input,
+.form-group textarea {
+
+    width: 100%;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.1);
+
+    border-radius: 3px;
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    color: var(--white);
+
+    font-size: 12px;
+
+    transition:
+        border-color 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+.form-group input {
+
+    height: 48px;
+
+    padding:
+        0
+        15px;
+
+}
+
+
+.form-group textarea {
+
+    min-height: 130px;
+
+    resize: vertical;
+
+    padding: 14px 15px;
+
+    line-height: 1.7;
+
+}
+
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+
+    color:
+        rgba(255, 255, 255, 0.25);
+
+}
+
+
+.form-group input:focus,
+.form-group textarea:focus {
+
+    outline: none;
+
+    border-color:
+        rgba(220, 164, 184, 0.5);
+
+    background:
+        rgba(220, 164, 184, 0.035);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(220, 164, 184, 0.05);
+
+}
+
+
+/* =========================================================
+   ETIQUETA + CONTADOR
+========================================================= */
+
+.message-label {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+
+.message-label label {
+    margin-bottom: 9px;
+}
+
+
+#contadorCaracteres {
+
+    margin-bottom: 9px;
+
+    color:
+        rgba(255, 255, 255, 0.3);
+
+    font-size: 8px;
+
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.input-error {
+
+    border-color:
+        rgba(255, 100, 130, 0.8)
+        !important;
+
+    animation:
+        inputShake
+        0.35s
+        ease;
+
+}
+
+
+@keyframes inputShake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    75% {
+        transform: translateX(5px);
+    }
+
+}
+
+
+/* =========================================================
+   VISTA PREVIA
+========================================================= */
+
+.preview-box {
+
+    position: relative;
+
+    margin-top: 28px;
+
+    padding: 22px;
+
+    border:
+        1px solid
+        rgba(220, 164, 184, 0.13);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(220, 164, 184, 0.055),
+            rgba(255, 255, 255, 0.018)
+        );
+
+}
+
+
+.preview-label {
+
+    display: block;
+
+    color:
+        rgba(220, 164, 184, 0.75);
+
+    font-size: 7px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.preview-name {
+
+    margin-top: 14px;
+
+    font-family: var(--font-title);
+
+    font-size: 28px;
+
+    color: var(--white);
+
+}
+
+
+.preview-message {
+
+    margin-top: 10px;
+
+    color: var(--text-muted);
+
+    font-size: 10px;
+
+    line-height: 1.7;
+
+    white-space: pre-wrap;
+
+    word-break: break-word;
+
+}
+
+
+/* =========================================================
+   BOTÓN CREAR
+========================================================= */
+
+.create-detail-button {
+
+    width: 100%;
+
+    height: 55px;
+
+    margin-top: 28px;
+
+    padding:
+        0
+        20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background:
+        linear-gradient(
+            100deg,
+            #b87590,
+            #d9a5b9
+        );
+
+    color:
+        #160d12;
+
+    cursor: pointer;
+
+    text-transform: uppercase;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    overflow: hidden;
+
+    position: relative;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+.create-detail-button::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 60%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.4),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    transition:
+        left 0.7s ease;
+
+}
+
+
+.create-detail-button:hover::before {
+    left: 150%;
+}
+
+
+.create-detail-button:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(180, 100, 135, 0.2);
+
+}
+
+
+.create-detail-button strong {
+
+    font-size: 20px;
+
+    font-weight: 400;
+
+}
+
+
+/* =========================================================
+   TEXTO FOOTER MODAL
+========================================================= */
+
+.modal-footer-text {
+
+    margin-top: 20px;
+
+    text-align: center;
+
+    color:
+        rgba(255, 255, 255, 0.25);
+
+    font-size: 8px;
+
+    letter-spacing: 1px;
+
+}
+
+
+.modal-footer-text strong {
+
+    color:
+        rgba(155, 14, 63, 0.7);
+
+    font-weight: 500;
+
+}
+
+
+/* =========================================================
+   EXPERIENCIA FINAL
+========================================================= */
+
+.experience-screen {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 2000;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 30px;
+
+    background:
+        #080609;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        scale(1.03);
+
+    transition:
+        opacity 0.6s ease,
+        transform 0.8s ease,
+        visibility 0.6s ease;
+
+    overflow-y: auto;
+
+}
+
+
+.experience-screen.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        scale(1);
+
+}
+
+
+/* =========================================================
+   FONDO EXPERIENCIA
+========================================================= */
+
+.experience-background {
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(210, 130, 160, 0.14),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 15% 80%,
+            rgba(130, 70, 100, 0.08),
+            transparent 30%
+        );
+
+}
+
+
+.experience-background::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.1),
+            rgba(0, 0, 0, 0.35)
+        );
+
+}
+
+
+/* =========================================================
+   CONTENIDO EXPERIENCIA
+========================================================= */
+
+.experience-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    max-width: 780px;
+
+    min-height: 80vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 50px 25px;
+
+}
+
+
+.experience-category {
+
+    color: var(--rose);
+
+    font-size: 8px;
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+
+}
+
+
+.experience-line {
+
+    width: 45px;
+    height: 1px;
+
+    margin:
+        25px
+        auto;
+
+    background:
+        var(--rose);
+
+}
+
+
+.experience-small {
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+    color:
+        rgba(255, 255, 255, 0.4);
+
+}
+
+
+.experience-name {
+
+    margin-top: 12px;
+
+    font-family: var(--font-title);
+
+    font-size:
+        clamp(65px, 11vw, 115px);
+
+    line-height: 0.8;
+
+    font-weight: 500;
+
+    color: var(--white);
+
+    text-shadow:
+        0 20px 60px
+        rgba(0, 0, 0, 0.5);
+
+    word-break: break-word;
+
+}
+
+
+.experience-message {
+
+    max-width: 600px;
+
+    margin-top: 55px;
+
+    color:
+        rgba(245, 239, 242, 0.9);
+
+    font-family: var(--font-title);
+
+    font-size:
+        clamp(22px, 3vw, 32px);
+
+    line-height: 1.45;
+
+    white-space: pre-wrap;
+
+    word-break: break-word;
+
+}
+
+
+.experience-divider {
+
+    width: 55px;
+    height: 1px;
+
+    margin:
+        45px
+        auto
+        22px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--rose),
+            transparent
+        );
+
+}
+
+
+.experience-signature {
+
+    color:
+        rgba(255, 255, 255, 0.4);
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+}
+
+
+.experience-brand {
+
+    margin-top: 8px;
+
+    color: var(--rose);
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+}
+
+
+/* =========================================================
+   BOTÓN VOLVER
+========================================================= */
+
+.experience-back {
+
+    margin-top: 45px;
+
+    padding:
+        12px
+        25px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.13);
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    color:
+        rgba(255, 255, 255, 0.55);
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
+
+}
+
+
+.experience-back:hover {
+
+    background:
+        rgba(113, 2, 41, 0.08);
+
+    color: white;
+
+    border-color:
+        rgba(220, 164, 201, 0.3);
+
+}
+
+
+/* =========================================================
+   RESPONSIVE TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
+
+    .details-grid {
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE TABLET PEQUEÑO
+========================================================= */
+
+@media (max-width: 760px) {
+
+    .hero {
+
+        min-height: 90vh;
+
+        padding:
+            70px
+            20px;
+
+    }
+
+
+    .hero-title {
+
+        letter-spacing: -2px;
+
+    }
+
+
+    .details-section {
+
+        padding:
+            90px
+            18px
+            100px;
+
+    }
+
+
+    .details-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 12px;
+
+    }
+
+
+    .detail-card {
+
+        min-height: 275px;
+
+        padding:
+            24px
+            20px;
+
+    }
+
+
+    .detail-card h3 {
+
+        font-size: 23px;
+
+    }
+
+
+    .modal-content {
+
+        padding:
+            38px
+            25px
+            28px;
+
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE MÓVIL
+========================================================= */
+
+@media (max-width: 520px) {
+
+    .hero {
+
+        min-height: 100svh;
+
+    }
+
+
+    .heart-symbol {
+
+        width: 62px;
+        height: 62px;
+
+        font-size: 35px;
+
+        margin-bottom: 25px;
+
+    }
+
+
+    .hero-kicker {
+
+        font-size: 8px;
+
+        letter-spacing: 3px;
+
+    }
+
+
+    .hero-title {
+
+        font-size:
+            clamp(60px, 18vw, 85px);
+
+        line-height: 0.82;
+
+    }
+
+
+    .brand {
+
+        margin-top: 28px;
+
+    }
+
+
+    .hero-description {
+
+        font-size: 11px;
+
+        max-width: 310px;
+
+    }
+
+
+    .scroll-indicator {
+
+        margin-top: 45px;
+
+    }
+
+
+    .section-heading {
+
+        margin-bottom: 45px;
+
+    }
+
+
+    .section-heading h2 {
+
+        font-size: 48px;
+
+    }
+
+
+    .section-description {
+
+        font-size: 11px;
+
+    }
+
+
+    .details-grid {
+
+        grid-template-columns:
+            1fr 1fr;
+
+    }
+
+
+    .detail-card {
+
+        min-height: 255px;
+
+        padding:
+            20px
+            17px;
+
+    }
+
+
+    .card-number {
+
+        font-size: 11px;
+
+    }
+
+
+    .card-icon {
+
+        width: 36px;
+        height: 36px;
+
+        margin-top: 24px;
+
+        font-size: 17px;
+
+    }
+
+
+    .detail-card h3 {
+
+        margin-top: 20px;
+
+        font-size: 21px;
+
+    }
+
+
+    .detail-card p {
+
+        font-size: 9px;
+
+    }
+
+
+    .detail-card button {
+
+        padding-top: 18px;
+
+        font-size: 7px;
+
+    }
+
+
+    .modal-window {
+
+        max-height: 94svh;
+
+    }
+
+
+    .modal-content {
+
+        padding:
+            35px
+            20px
+            25px;
+
+    }
+
+
+    .modal-title {
+
+        font-size: 45px;
+
+    }
+
+
+    .modal-description {
+
+        font-size: 10px;
+
+    }
+
+
+    .form-group {
+
+        margin-top: 22px;
+
+    }
+
+
+    .preview-box {
+
+        padding: 18px;
+
+    }
+
+
+    .preview-name {
+
+        font-size: 25px;
+
+    }
+
+
+    .experience-content {
+
+        min-height: 90svh;
+
+        padding:
+            50px
+            15px;
+
+    }
+
+
+    .experience-name {
+
+        font-size:
+            clamp(55px, 17vw, 85px);
+
+    }
+
+
+    .experience-message {
+
+        margin-top: 40px;
+
+        font-size: 21px;
+
+    }
+
+
+    .experience-divider {
+
+        margin-top: 35px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MÓVILES MUY PEQUEÑOS
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .details-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .detail-card {
+
+        min-height: 245px;
+
+    }
+
+
+    .hero-title {
+
+        font-size: 58px;
+
+    }
+
+
+    .modal-content {
+
+        padding:
+            32px
+            17px
+            22px;
+
+    }
+
+}
+
+
+/* =========================================================
+   REDUCIR ANIMACIONES
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+
+    }
+
+}

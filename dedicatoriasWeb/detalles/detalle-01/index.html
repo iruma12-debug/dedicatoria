@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#0a0809"
+    >
+
+    <title>Una carta para ti</title>
+
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+
+    <!-- =====================================
+         MÚSICA
+    ====================================== -->
+
+    <audio
+        id="musicaDetalle"
+        preload="none"
+        loop
+    >
+        <source
+            src="./audio/amapolas-leo-rizzi-oficial.mp3.mp3"
+            type="audio/mpeg"
+        >
+    </audio>
+
+
+    <!-- =====================================
+         EXPERIENCIA
+    ====================================== -->
+
+    <main class="experiencia">
+
+        <!-- Fondo -->
+
+        <div class="fondo" aria-hidden="true">
+
+            <div class="fondo-base"></div>
+
+            <div class="fondo-brillo fondo-brillo-1"></div>
+
+            <div class="fondo-brillo fondo-brillo-2"></div>
+
+            <div class="fondo-brillo fondo-brillo-3"></div>
+
+            <div class="fondo-vignette"></div>
+
+        </div>
+
+
+        <!-- Partículas -->
+
+        <div
+            id="particulas"
+            class="particulas"
+            aria-hidden="true"
+        ></div>
+
+
+        <!-- =================================
+             BARRA SUPERIOR
+        ================================== -->
+
+        <header class="barra-superior">
+
+            <div class="marca">
+
+                <span class="marca-linea"></span>
+
+                <span class="marca-texto">
+                    BY IRU VENTXS
+                </span>
+
+            </div>
+
+
+            <button
+                id="musicaBtn"
+                class="musica-btn"
+                type="button"
+                aria-label="Reproducir música"
+            >
+
+                <span
+                    id="musicaIcono"
+                    class="musica-icono"
+                >
+                    ♪
+                </span>
+
+                <span
+                    id="musicaTexto"
+                    class="musica-texto"
+                >
+                    Música
+                </span>
+
+            </button>
+
+        </header>
+
+
+        <!-- =================================
+             CONTENIDO
+        ================================== -->
+
+        <section class="contenido">
+
+
+            <!-- Introducción -->
+
+            <div
+                class="intro"
+                id="intro"
+            >
+
+                <p class="numero-detalle">
+                    DETALLE 01
+                </p>
+
+                <div class="intro-linea"></div>
+
+                <p class="categoria">
+                    UNA CARTA PARA TI
+                </p>
+
+                <p class="intro-texto">
+                    Hay algo que quiero decirte.
+                </p>
+
+            </div>
+
+
+            <!-- =================================
+                 CARTA
+            ================================== -->
+
+            <article
+                id="carta"
+                class="carta"
+            >
+
+                <div
+                    class="carta-brillo"
+                    aria-hidden="true"
+                ></div>
+
+
+                <!-- Cabecera -->
+
+                <div class="carta-cabecera">
+
+                    <span class="ornamento"></span>
+
+                    <span class="ornamento-centro">
+                        01
+                    </span>
+
+                    <span class="ornamento"></span>
+
+                </div>
+
+
+                <!-- Destinatario -->
+
+                <div class="destinatario">
+
+                    <p class="etiqueta">
+                        PARA
+                    </p>
+
+                    <h1
+                        id="nombrePersona"
+                        class="nombre"
+                    >
+                        Alguien especial
+                    </h1>
+
+                </div>
+
+
+                <!-- Separador -->
+
+                <div class="separador">
+
+                    <span></span>
+
+                    <i></i>
+
+                    <span></span>
+
+                </div>
+
+
+                <!-- Mensaje -->
+
+                <div
+                    id="mensajePersona"
+                    class="mensaje"
+                >
+                    Tu mensaje aparecerá aquí...
+                </div>
+
+
+                <!-- Firma -->
+
+                <div class="firma">
+
+                    <p class="firma-texto">
+                        Con cariño
+                    </p>
+
+                    <div class="firma-linea"></div>
+
+                    <p class="firma-marca">
+                        Iru Ventxs
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="carta-reflejo"
+                    aria-hidden="true"
+                ></div>
+
+            </article>
+
+
+            <!-- =================================
+                 CIERRE
+            ================================== -->
+
+            <div class="cierre">
+
+                <span class="cierre-linea"></span>
+
+                <p>
+                    Un pequeño detalle,
+                    hecho especialmente para ti.
+                </p>
+
+                <span class="cierre-linea"></span>
+
+            </div>
+
+
+            <!-- =================================
+                 ACCIONES
+            ================================== -->
+
+            <div class="acciones">
+
+                <button
+                    id="descargarBtn"
+                    class="accion accion-principal"
+                    type="button"
+                >
+
+                    <span class="accion-icono">
+                        ↓
+                    </span>
+
+                    <span>
+                        Guardar detalle
+                    </span>
+
+                </button>
+
+
+                <button
+                    id="volverBtn"
+                    class="accion accion-secundaria"
+                    type="button"
+                >
+
+                    <span class="accion-icono">
+                        ←
+                    </span>
+
+                    <span>
+                        Volver
+                    </span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             VENTANA DE GUARDADO
+        ================================== -->
+
+        <div
+            id="mensajeDescarga"
+            class="ventana"
+            aria-hidden="true"
+        >
+
+            <div class="ventana-overlay"></div>
+
+
+            <div
+                class="ventana-contenido"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="tituloGuardado"
+            >
+
+                <div class="guardado-icono">
+                    <span>✓</span>
+                </div>
+
+
+                <p class="guardado-etiqueta">
+                    DETALLE GUARDADO
+                </p>
+
+
+                <h2 id="tituloGuardado">
+                    Gracias por compartir
+                    este momento
+                </h2>
+
+
+                <p class="guardado-texto">
+                    Si te pareció interesante
+                    este detalle, puedes unirte
+                    a nuestro grupo para enterarte
+                    de nuevos detalles y novedades.
+                </p>
+
+
+                <a
+                    class="grupo-btn"
+                    href="https://chat.whatsapp.com/C6rret7CS9602Ljr3A6LqQ"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+
+                    <span>
+                        UNIRME AL GRUPO
+                    </span>
+
+                    <strong>
+                        →
+                    </strong>
+
+                </a>
+
+
+                <button
+                    id="cerrarDescarga"
+                    class="cerrar-ventana"
+                    type="button"
+                >
+                    Cerrar
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================
+         JAVASCRIPT
+    ====================================== -->
+
+    <script src="./script.js"></script>
+
+</body>
+
+</html>
